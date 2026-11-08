@@ -1,0 +1,13 @@
+services:
+  opencoder-agent:
+    build: .
+    container_name: opencoder-agent
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    environment:
+      OPENCODER_WORKSPACE: /app/workspace
+    volumes:
+      - ./workspace:/app/workspace
+    restart: unless-stopped
